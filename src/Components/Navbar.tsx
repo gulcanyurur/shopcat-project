@@ -4,8 +4,6 @@ type NavbarProps = {
   setCategory: (category: string) => void;
 };
 
-
-
 const categories = [
   { key: "cat", label: "Kedi" },
   { key: "dog", label: "Köpek" },
@@ -27,7 +25,7 @@ const Navbar = ({ setCategory }: NavbarProps) => {
     setModalOpen(false);
   };
 
-  // Modal dışında tıklanınca kapansın
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
@@ -104,7 +102,7 @@ const Navbar = ({ setCategory }: NavbarProps) => {
             Çok Satanlar
           </button>
         </li>
-        {/* Diğer kategoriler ana menüde de kalsın istersen burayı silebilirsin */}
+        
         {categories.map((cat) => (
           <li key={cat.key}>
             <button
