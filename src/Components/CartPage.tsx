@@ -80,7 +80,7 @@ const CartPage = ({ cart, setCart }: CartPageProps) => {
               </li>
             ))}
           </ul>
-          <div style={{ textAlign: 'right', fontWeight: 700, fontSize: 18, margin: '16px 0', color: '#d81b60' }}>
+          <div className="cart-total">
             Toplam: {total} TL
           </div>
           <button onClick={handleBuy} className="cart-checkout">
