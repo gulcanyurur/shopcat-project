@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../imagesSrc/logo.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -22,6 +22,29 @@ type GearListProps = {
 const GearList = ({ cart, setCart }: GearListProps) => {
   const [category, setCategory] = useState("cat");
   const [search, setSearch] = useState("");
+  const [selectedId, setSelectedId] = useState<number|null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (search.trim().length > 0) {
+      const exact = products.find(
+        (p) => p.name.toLowerCase() === search.trim().toLowerCase()
+      );
+      if (exact) {
+        setSelectedId(exact.id);
+      } else {
+        setSelectedId(null);
+      }
+    } else {
+      setSelectedId(null);
+    }
+  }, [search]);
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && selectedId) {
+      navigate(`/product/${selectedId}`);
+    }
+  };
 
   type CartItem = Product & { quantity: number };
   const cartWithQty: CartItem[] = cart.reduce((acc: CartItem[], item) => {
@@ -119,23 +142,23 @@ const GearList = ({ cart, setCart }: GearListProps) => {
   const Gear = ({
     product,
     onAddToCart,
+    isSelected,
     children,
   }: {
     product: Product;
     onAddToCart: () => void;
+    isSelected?: boolean;
     children?: React.ReactNode;
   }) => (
     <article className="gear-card">
       <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
         <img src={product.image} alt={product.name} />
-        <h2>{product.name} {children}</h2>
-        <h3>{product.brand}</h3>
-        <p>{product.description}</p>
-        <div style={{ fontWeight: 600, color: '#388e3c', marginBottom: 8 }}>
+        <h2 style={isSelected ? { color: '#d81b60' } : {}}>{product.name} {children}</h2>
+        <h3 style={isSelected ? { color: '#d81b60' } : {}}>{product.brand}</h3>
+        <p style={isSelected ? { color: '#d81b60' } : {}}>{product.description}</p>
+        <div style={{ fontWeight: 600, color: isSelected ? '#d81b60' : '#388e3c', marginBottom: 8 }}>
           {product.price ? `${product.price} TL` : ''}
         </div>
-
-        
       </Link>
       <button onClick={onAddToCart}>🛒 Sepete Ekle</button>
     </article>
@@ -181,7 +204,9 @@ const GearList = ({ cart, setCart }: GearListProps) => {
             placeholder="Ürün ara..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleSearchKeyDown}
             className="search-box"
+            style={selectedId ? { borderColor: '#d81b60', color: '#d81b60', fontWeight: 600 } : {}}
           />
           <div style={{ display: 'inline-block', position: 'relative' }}>
             <Link to="/cart" style={{ zIndex: 2, position: 'relative' }}>
@@ -217,11 +242,13 @@ const GearList = ({ cart, setCart }: GearListProps) => {
       <section className="product-grid">
         {filteredProducts.map((p) => {
           const inCart = cartWithQty.find((item) => item.id === p.id);
+          const isSelected = selectedId === p.id;
           return (
             <Gear
               key={p.id}
               product={p}
               onAddToCart={() => addToCart(p)}
+              isSelected={isSelected}
             >
               {inCart && inCart.quantity > 1 && (
                 <span style={{ fontWeight: 600, color: '#d81b60', marginLeft: 4 }}>
