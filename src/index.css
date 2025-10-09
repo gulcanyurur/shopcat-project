@@ -381,7 +381,7 @@ body {
   }
 
   
-/* gearlist-header, product-grid, header-right, search-box tekrarlarını birleştiriyorum */
+
 .gearlist-header {
   display: flex;
   align-items: center;
@@ -450,7 +450,7 @@ body {
 }
 
 
-/* navbar-menu ve altındaki tekrarları birleştiriyorum */
+
 .navbar-menu {
   list-style: none;
   display: flex;
@@ -601,7 +601,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0 0 28px 0;
-  max-width: 700px;
+  max-width: 950px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -613,10 +613,11 @@ body {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(216,27,96,0.10);
-  padding: 18px 24px;
+  padding: 24px 80px;
   transition: box-shadow 0.3s, background 0.3s;
   border: 1.5px solid #f3e6f6;
-  gap: 18px;
+  gap: 32px;
+  min-width: 0;
 }
 .cart-item:hover {
   box-shadow: 0 8px 32px rgba(216,27,96,0.18);
