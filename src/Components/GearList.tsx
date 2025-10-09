@@ -198,7 +198,7 @@ const GearList = ({ cart, setCart }: GearListProps) => {
       <div className="gearlist-header">
         <img src={logo} alt="ShopCat Logo" />
         <h1>2500 TL ve Üzeri Alışverişlerde İstanbul İçi Kargo Bedava!</h1>
-        <div className="header-right">
+        <div className="header-right" style={{ position: 'relative' }}>
           <input
             type="text"
             placeholder="Ürün ara..."
@@ -207,7 +207,37 @@ const GearList = ({ cart, setCart }: GearListProps) => {
             onKeyDown={handleSearchKeyDown}
             className="search-box"
             style={selectedId ? { borderColor: '#d81b60', color: '#d81b60', fontWeight: 600 } : {}}
+            autoComplete="off"
           />
+          {search.length > 0 && (
+            <ul style={{
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              right: 0,
+              background: '#fff',
+              border: '1px solid #eee',
+              borderRadius: 6,
+              boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+              zIndex: 100,
+              margin: 0,
+              padding: '4px 0',
+              listStyle: 'none',
+              maxHeight: 180,
+              overflowY: 'auto',
+            }}>
+              {products
+                .filter(p => p.name.toLowerCase().includes(search.toLowerCase()))
+                .slice(0, 7)
+                .map(p => (
+                  <li key={p.id} style={{ padding: '6px 14px', cursor: 'pointer', color: '#d81b60', fontWeight: 500 }}
+                    onMouseDown={() => setSearch(p.name)}
+                  >
+                    {p.name}
+                  </li>
+                ))}
+            </ul>
+          )}
           <div style={{ display: 'inline-block', position: 'relative' }}>
             <Link to="/cart" style={{ zIndex: 2, position: 'relative' }}>
               🛒 Sepet: <b>{cartWithQty.reduce((sum, p) => sum + p.quantity, 0)}</b> ürün
