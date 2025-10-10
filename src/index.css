@@ -1,3 +1,4 @@
+
 @import './styles/darkmode.css';
 @import './styles/responsive.css';
 
@@ -806,4 +807,12 @@ body {
 .search-box:focus {
   border-color: #d81b60;
   box-shadow: 0 0 4px rgba(216, 27, 96, 0.4);
+}
+.cart-empty {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: darkslategray;
+  margin: 60px 0 30px 0;
+  letter-spacing: 1px;
 }

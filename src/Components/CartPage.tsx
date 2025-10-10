@@ -52,7 +52,7 @@ const CartPage = ({ cart, setCart }: CartPageProps) => {
     <div className="cart-page">
       <h2 className="cart-title">🛒 Sepetim</h2>
       {cartWithQty.length === 0 ? (
-        <p>Sepetiniz boş.</p>
+        <p className="cart-empty">Sepetiniz boş.</p>
       ) : (
         <>
           <ul className="cart-list">
