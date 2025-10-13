@@ -255,3 +255,4 @@ body{background:#f6f6f6;color:var(--text);font-family:system-ui,Segoe UI,Roboto,
 @media (max-width:900px){
   .checkout-wrapper{grid-template-columns:1fr}
 }
+}

@@ -111,7 +111,9 @@ const Navbar = ({ setCategory }: NavbarProps) => {
             >
               {cat.label.toUpperCase()}
             </button>
+            
           </li>
+          
         ))}
       </ul>
     </nav>

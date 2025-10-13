@@ -1,7 +1,7 @@
 import Footer from "./Footer";
 import { useLocation } from "react-router-dom";
 
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./multistep-checkout.css";

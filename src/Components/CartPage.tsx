@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../types/Product";
 
