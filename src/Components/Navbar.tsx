@@ -10,7 +10,7 @@ const categories = [
   { key: "bird", label: "Kuş" },
   { key: "fish", label: "Balık" },
   { key: "horse", label: "At" },
-  { key: "rabbit", label: "Tavşan" },
+  { key: "rabbit", label: "Tavşann" },
   { key: "Civciv", label: "Civciv" },
 ];
 
@@ -25,10 +25,12 @@ const Navbar = ({ setCategory }: NavbarProps) => {
     setModalOpen(false);
   };
 
-
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         setModalOpen(false);
       }
     }
@@ -102,7 +104,7 @@ const Navbar = ({ setCategory }: NavbarProps) => {
             Çok Satanlar
           </button>
         </li>
-        
+
         {categories.map((cat) => (
           <li key={cat.key}>
             <button
@@ -111,9 +113,7 @@ const Navbar = ({ setCategory }: NavbarProps) => {
             >
               {cat.label.toUpperCase()}
             </button>
-            
           </li>
-          
         ))}
       </ul>
     </nav>
@@ -121,4 +121,3 @@ const Navbar = ({ setCategory }: NavbarProps) => {
 };
 
 export default Navbar;
-

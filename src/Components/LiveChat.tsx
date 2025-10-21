@@ -3,7 +3,7 @@ import "./LiveChat.css";
 
 const LiveChat: React.FC = () => {
   const [messages, setMessages] = useState([
-    { from: "bot", text: "Merhaba! 👋 Size nasıl yardımcı olabilirim?" }
+    { from: "bot", text: "Merhaba! 👋 Size nasıl yardımcı olabilirim?" },
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,6 @@ const LiveChat: React.FC = () => {
   const getBotResponse = (msg: string): string => {
     const text = msg.toLowerCase();
 
-   
     if (lastQuestion === "nasılsın") {
       if (text.includes("iyi")) return "Harika! 😊 Böyle duymak güzel.";
       if (text.includes("kötü")) return "Üzülme 😔, bazen kötü günler geçer.";
@@ -53,7 +52,7 @@ const LiveChat: React.FC = () => {
     const fallback = [
       "Anlayamadım 🤔 Biraz daha açıklar mısınız?",
       "Bu konuda emin değilim ama yardımcı olmaya çalışırım.",
-      "İstersen farklı bir konuda da konuşabiliriz 😊"
+      "İstersen farklı bir konuda da konuşabiliriz 😊",
     ];
     return fallback[Math.floor(Math.random() * fallback.length)];
   };
