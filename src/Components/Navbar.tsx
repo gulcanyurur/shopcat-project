@@ -10,7 +10,7 @@ const categories = [
   { key: "bird", label: "Kuş" },
   { key: "fish", label: "Balık" },
   { key: "horse", label: "At" },
-  { key: "rabbit", label: "Tavşann" },
+  { key: "rabbit", label: "Tavşan" },
   { key: "Civciv", label: "Civciv" },
 ];
 

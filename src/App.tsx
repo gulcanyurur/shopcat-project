@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import GearList from "./Components/GearList";
-import CartPage from "./Components/CartPage";
-import MultiStepCheckout from "./Components/MultiStepCheckout";
-import LiveChat from "./Components/LiveChat";
+import GearList from "./components/GearList";
+import CartPage from "./components/CartPage";
+import MultiStepCheckout from "./components/MultiStepCheckout";
+import LiveChat from "./components/LiveChat";
 import type { Product } from "./types/Product";
 
 

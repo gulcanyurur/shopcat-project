@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../imagesSrc/logo.png";
+import logo from "./imagesSrc/logo.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import type { Product } from "../types/Product";
