@@ -74,17 +74,9 @@ const GearList = ({ cart, setCart }: GearListProps) => {
       description: "Yetişkin kediler için tam besleyici mama",
       price: 350,
     },
+    
     {
       id: 2,
-      category: "cat",
-      image: "/KediKumu.jpg",
-      name: "Kedi Kumu",
-      brand: "Ever Clean",
-      description: "Topaklanan ve kokuyu hapseden kedi kumu",
-      price: 120,
-    },
-    {
-      id: 3,
       category: "cat",
       image: "/KediOyuncagı.jpg",
       name: "Kedi Oyuncağı",
@@ -93,7 +85,7 @@ const GearList = ({ cart, setCart }: GearListProps) => {
       price: 60,
     },
     {
-      id: 4,
+      id: 3,
       category: "cat",
       image: "/TırmalamaTahtası.jpg",
       name: "Tırmalama Tahtası",
@@ -102,7 +94,7 @@ const GearList = ({ cart, setCart }: GearListProps) => {
       price: 250,
     },
     {
-      id: 5,
+      id: 4,
       category: "cat",
       image: "/kediçantası.jpg",
       name: "Taşıma Çantası",
@@ -111,7 +103,7 @@ const GearList = ({ cart, setCart }: GearListProps) => {
       price: 180,
     },
     {
-      id: 6,
+      id: 5,
       category: "cat",
       image: "/Kediyatagı.jpg",
       name: "Kedi Yatağı",
