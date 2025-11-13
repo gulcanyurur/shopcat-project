@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import GearList from "./components/GearList";
-import CartPage from "./components/CartPage";
-import MultiStepCheckout from "./components/MultiStepCheckout";
-import LiveChat from "./components/LiveChat";
-import type { Product } from "./types/Product";
+import GearList from "./GearList";
+import CartPage from "./CartPage";
+import MultiStepCheckout from "./MultiStepCheckout";
+import LiveChat from "./LiveChat";
+import type { Product } from "../types/Product";
 
 
 function ScrollToTop() {
